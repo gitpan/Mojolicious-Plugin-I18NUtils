@@ -9,7 +9,7 @@ use Time::Piece;
 
 use parent 'Mojolicious::Plugin';
 
-our $VERSION = '0.01_1';
+our $VERSION = '0.02';
 
 sub register {
     my ($self, $app, $config) = @_;
@@ -175,7 +175,7 @@ Mojolicious::Plugin::I18NUtils - provide some helper functions for I18N
 
 =head1 VERSION
 
-version 0.01_1
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -228,8 +228,6 @@ Same as C<datetime_loc>, but omits the time
 will return
 
  10.12.2014
-
-=back
 
 =head1 METHODS
 
