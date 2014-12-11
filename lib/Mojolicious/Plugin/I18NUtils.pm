@@ -10,7 +10,7 @@ use Time::Piece;
 use parent 'Mojolicious::Plugin';
 use feature 'state';
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub register {
     my ($self, $app, $config) = @_;
@@ -176,7 +176,7 @@ Mojolicious::Plugin::I18NUtils - provide some helper functions for I18N
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
