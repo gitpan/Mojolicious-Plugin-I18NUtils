@@ -8,8 +8,9 @@ use warnings;
 use Time::Piece;
 
 use parent 'Mojolicious::Plugin';
+use feature 'state';
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub register {
     my ($self, $app, $config) = @_;
@@ -56,7 +57,7 @@ sub _date_long {
 
     return "%Y.%m.%d %H:%M:%S" if !$lang;
 
-    my %formats = (
+    state $formats = {
         ar_SA   => '%d.%m.%Y %H:%M:%S',
         bg      => '%d.%m.%Y %H:%M:%S',
         ca      => '%d.%m.%Y %H:%M:%S',
@@ -101,9 +102,9 @@ sub _date_long {
         vi_VN   => '%d.%m.%Y %H:%M:%S',
         zh_CN   => '%Y.%m.%d %H:%M:%S',
         zh_TW   => '%Y.%m.%d %H:%M:%S',
-    );
+    };
 
-    return $formats{$lang} || '%Y.%m.%d %H:%M:%S';
+    return $formats->{$lang} // '%Y.%m.%d %H:%M:%S';
 }
 
 sub _date_short {
@@ -111,7 +112,7 @@ sub _date_short {
 
     return "%Y.%m.%d" if !$lang;
 
-    my %formats = (
+    state $formats = {
         ar_SA   => '%d.%m.%Y',
         bg      => '%d.%m.%Y',
         ca      => '%d.%m.%Y',
@@ -156,9 +157,9 @@ sub _date_short {
         vi_VN   => '%d.%m.%Y',
         zh_CN   => '%Y.%m.%d',
         zh_TW   => '%Y.%m.%d',
-    );
+    };
 
-    return $formats{$lang} || '%Y.%m.%d';
+    return $formats->{$lang} // '%Y.%m.%d';
 }
 
 1;
@@ -175,7 +176,7 @@ Mojolicious::Plugin::I18NUtils - provide some helper functions for I18N
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
