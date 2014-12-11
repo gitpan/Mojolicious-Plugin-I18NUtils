@@ -1,16 +1,10 @@
 package Mojolicious::Plugin::I18NUtils;
 
 # ABSTRACT: provide some helper functions for I18N
-
-use strict;
-use warnings;
-
+use Mojo::Base 'Mojolicious::Plugin';
 use Time::Piece;
 
-use parent 'Mojolicious::Plugin';
-use feature 'state';
-
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 sub register {
     my ($self, $app, $config) = @_;
@@ -176,7 +170,7 @@ Mojolicious::Plugin::I18NUtils - provide some helper functions for I18N
 
 =head1 VERSION
 
-version 0.04
+version 0.05
 
 =head1 SYNOPSIS
 
