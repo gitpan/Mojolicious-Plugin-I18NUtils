@@ -20,10 +20,11 @@ my %WriteMakefileArgs = (
   "LICENSE" => "artistic_2",
   "NAME" => "Mojolicious::Plugin::I18NUtils",
   "PREREQ_PM" => {
+    "CLDR::Number" => "0.09",
     "Mojolicious" => "4.71",
     "Time::Piece" => 0
   },
-  "VERSION" => "0.05",
+  "VERSION" => "0.06",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -31,6 +32,7 @@ my %WriteMakefileArgs = (
 
 
 my %FallbackPrereqs = (
+  "CLDR::Number" => "0.09",
   "Mojolicious" => "4.71",
   "Time::Piece" => 0
 );

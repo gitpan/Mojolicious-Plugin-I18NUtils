@@ -1,10 +1,15 @@
 History for Mojolicious::Plugin::I18NUtils
 =========================================
 
+0.06 2014-12-15
+
+  [IMPROVEMENTS]
+  * add helper 'currency' to format currency strings (using CLDR::Number)
+
 0.05 2014-12-11
 
   [IMPROVEMENTS]
-  * use Mojo::Base instead of "parent" (thanks Красимир Беров - kberov)
+  * use Mojo::Base instead of "parent" (thanks Красимир Беров - github: kberov, PAUSE: BEROV)
 
 0.04 2014-12-11
 
@@ -14,7 +19,7 @@ History for Mojolicious::Plugin::I18NUtils
 0.03 2014-12-11
 
   [IMPROVEMENTS]
-  * gain more speed thanks to state variables (thanks Красимир Беров - kberov)
+  * gain more speed thanks to state variables (thanks Красимир Беров - github: kberov, PAUSE: BEROV)
 
 0.02 2014-12-10
 

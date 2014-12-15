@@ -13,10 +13,11 @@ meta-spec:
   version: '1.4'
 name: Mojolicious-Plugin-I18NUtils
 requires:
+  CLDR::Number: '0.09'
   Mojolicious: '4.71'
   Time::Piece: '0'
 resources:
   bugtracker: http://github.com/reneeb/Mojolicious-Plugin-I18NUtils/issues
   homepage: http://github.com/reneeb/Mojolicious-Plugin-I18NUtils
   repository: http://github.com/reneeb/Mojolicious-Plugin-I18NUtils.git
-version: '0.05'
+version: '0.06'
