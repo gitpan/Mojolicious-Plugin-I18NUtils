@@ -15,3 +15,4 @@ t/datetime.t
 t/datetime_config.t
 t/datetime_only_date.t
 t/decimal.t
+t/range.t
