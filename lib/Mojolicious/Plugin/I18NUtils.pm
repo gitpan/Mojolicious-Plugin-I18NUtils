@@ -5,7 +5,7 @@ use Mojo::Base 'Mojolicious::Plugin';
 use Time::Piece;
 use CLDR::Number;
 
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 sub register {
     my ($self, $app, $config) = @_;
@@ -62,6 +62,16 @@ sub register {
         $objects{dec}->{$locale}  ||= $objects{cldr}->{$locale}->decimal_formatter;
 
         my $formatted = $objects{dec}->{$locale}->range( $lower, $upper );
+        return $formatted;
+    } );
+
+    $app->helper( at_least => sub {
+        my ($c, $number, $locale) = @_;
+
+        $objects{cldr}->{$locale} ||= CLDR::Number->new( locale => $locale );
+        $objects{dec}->{$locale}  ||= $objects{cldr}->{$locale}->decimal_formatter;
+
+        my $formatted = $objects{dec}->{$locale}->at_least( $number );
         return $formatted;
     } );
 }
@@ -203,7 +213,7 @@ Mojolicious::Plugin::I18NUtils - provide some helper functions for I18N
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 
@@ -294,6 +304,18 @@ will return
   ١–٢٬٠٠٠
   1–2.000
   1–2,000
+
+=head2 at_least
+
+  <%= at_least( 2000, 'ar' ) %>
+  <%= at_least( 2000, 'de' ) %>
+  <%= at_least( 2000, 'en' ) %>
+
+will return
+
+  ٢٬٠٠٠
+  2.000
+  2,000
 
 =head1 METHODS
 
