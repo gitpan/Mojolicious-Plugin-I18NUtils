@@ -24,7 +24,7 @@ my %WriteMakefileArgs = (
     "Mojolicious" => "4.71",
     "Time::Piece" => 0
   },
-  "VERSION" => "0.09",
+  "VERSION" => "0.10",
   "test" => {
     "TESTS" => "t/*.t"
   }

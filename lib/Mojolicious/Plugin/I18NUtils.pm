@@ -5,7 +5,7 @@ use Mojo::Base 'Mojolicious::Plugin';
 use Time::Piece;
 use CLDR::Number;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 sub register {
     my ($self, $app, $config) = @_;
@@ -36,12 +36,20 @@ sub register {
     } );
 
     $app->helper( currency => sub {
-        my ($c, $number, $locale, $currency) = @_;
+        my ($c, $number, $locale, $currency, $opts) = @_;
 
         $objects{cldr}->{$locale} ||= CLDR::Number->new( locale => $locale );
         $objects{cur}->{$locale}  ||= $objects{cldr}->{$locale}->currency_formatter( currency_code => $currency );
 
-        my $formatted = $objects{cur}->{$locale}->format( $number );
+        my $cur_object = $objects{cur}->{$locale};
+
+        if ( $opts && $opts->{cash} ) {
+            $cur_object->cash(1);
+        }
+
+        my $formatted = $cur_object->format( $number );
+        $cur_object->cash(0);
+
         return $formatted;
     } );
 
@@ -213,7 +221,7 @@ Mojolicious::Plugin::I18NUtils - provide some helper functions for I18N
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 

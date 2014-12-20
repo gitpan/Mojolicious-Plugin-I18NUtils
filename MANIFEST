@@ -8,6 +8,7 @@ README
 dist.ini
 lib/Mojolicious/Plugin/I18NUtils.pm
 t/at_least.t
+t/cash.t
 t/currency.t
 t/date.t
 t/date_config.t
