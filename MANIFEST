@@ -7,6 +7,7 @@ Makefile.PL
 README
 dist.ini
 lib/Mojolicious/Plugin/I18NUtils.pm
+lib/Mojolicious/Plugin/I18NUtils/Locale.pm
 t/at_least.t
 t/cash.t
 t/currency.t
@@ -17,4 +18,6 @@ t/datetime.t
 t/datetime_config.t
 t/datetime_only_date.t
 t/decimal.t
+t/locale/locale.t
+t/locale_obj.t
 t/range.t
