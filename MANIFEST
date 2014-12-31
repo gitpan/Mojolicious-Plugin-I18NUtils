@@ -13,6 +13,7 @@ t/cash.t
 t/currency.t
 t/date.t
 t/date_config.t
+t/date_from_to.t
 t/date_only_date.t
 t/datetime.t
 t/datetime_config.t
